@@ -1,0 +1,7 @@
+Character Name: Byron
+Class: Warrior
+Level: 1
+Strength: 5
+Magic:
+Health:
+Gold:

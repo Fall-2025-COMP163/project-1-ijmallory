@@ -1,7 +1,7 @@
 """
 COMP 163 - Project 1: Character Creator & Saving/Loading
-Name: [Your Name Here]
-Date: [Date]
+Name: [Izeal Mallory]
+Date: [10/30/25]
 
 AI Usage: [Document any AI assistance used]
 Example: AI helped with file I/O error handling logic in save_character function
@@ -17,6 +17,19 @@ def create_character(name, character_class):
     # Should return: {"name": "Aria", "class": "Mage", "level": 1, "strength": 5, "magic": 15, "health": 80, "gold": 100}
     """
     # TODO: Implement this function
+    level = 1
+    strength, magic, health = calculate_stats(character_class, level)
+
+    character = {
+        "name": name,
+        "class": character_class,
+        "level": level,
+        "strength": strength,
+        "magic": magic,
+        "health": health,
+        "gold": 100
+    }
+    return
     # Remember to use calculate_stats() function for stat calculation
     pass
 
@@ -32,6 +45,28 @@ def calculate_stats(character_class, level):
     - Clerics: Medium strength, high magic, high health
     """
     # TODO: Implement this function
+    if character_class == "Warrior":
+        strength = 10
+        magic = 2
+        health = 100
+    elif character_class == "Mage":
+        strength = 5
+        magic = 15
+        health = 80
+    elif character_class == "Rogue":
+        strength = 8
+        magic = 8
+        health = 70
+    elif character_class == "Cleric":
+        strength = 7
+        magic = 12
+        health = 90
+    else:
+        strength = 0
+        magic = 0
+        health = 0
+
+    return (strength * level, magic * level, health * level)
     # Return a tuple: (strength, magic, health)
     pass
 
@@ -50,6 +85,15 @@ def save_character(character, filename):
     Gold: [gold]
     """
     # TODO: Implement this function
+    with open(filename, 'w') as file:
+        file.write(f"Character Name: {character.get('name', '')}\n")
+        file.write(f"Class: {character.get('class', '')}\n")
+        file.write(f"Level: {character.get('level', '')}\n")
+        file.write(f"Strength: {character.get('strength', '')}\n")
+        file.write(f"Magic: {character.get('magic', '')}\n")
+        file.write(f"Health: {character.get('health', '')}\n")
+        file.write(f"Gold: {character.get('gold', '')}\n")
+    return True
     # Remember to handle file errors gracefully
     pass
 
@@ -59,6 +103,25 @@ def load_character(filename):
     Returns: character dictionary if successful, None if file not found
     """
     # TODO: Implement this function
+    with open(filename, 'r') as file:
+        character_data = {}
+        for line in file:
+            key, value = line.strip().split(': ', 1)
+            if key == 'Character Name':
+                character_data['name'] = value
+            elif key == 'Class':
+                character_data['class'] = value
+            elif key == 'Level':
+                character_data['level'] = int(value)
+            elif key == 'Strength':
+                character_data['strength'] = int(value)
+            elif key == 'Magic':
+                character_data['magic'] = int(value)
+            elif key == 'Health':
+                character_data['health'] = int(value)
+            elif key == 'Gold':
+                character_data['gold'] = int(value)
+        return character_data
     # Remember to handle file not found errors
     pass
 
@@ -78,6 +141,14 @@ def display_character(character):
     Gold: 100
     """
     # TODO: Implement this function
+    print("=== CHARACTER SHEET ===")
+    print(f"Name: {character['name']}")
+    print(f"Class: {character['class']}")
+    print(f"Level: {character['level']}")
+    print(f"Strength: {character['strength']}")
+    print(f"Magic: {character['magic']}")
+    print(f"Health: {character['health']}")
+    print(f"Gold: {character['gold']}")
     pass
 
 def level_up(character):
@@ -87,6 +158,11 @@ def level_up(character):
     Returns: None
     """
     # TODO: Implement this function
+    character['level'] += 1
+    character['strength'] += 2
+    character['magic'] += 3
+    character['health'] += 10
+    character['gold'] += 50
     # Remember to recalculate stats for the new level
     pass
 

@@ -17,6 +17,7 @@ def create_character(name, character_class):
     # Should return: {"name": "Aria", "class": "Mage", "level": 1, "strength": 5, "magic": 15, "health": 80, "gold": 100}
     """
     # TODO: Implement this function
+    char = create_character("Byron", "Warrior")
     level = 1
     strength, magic, health = calculate_stats(character_class, level)
 

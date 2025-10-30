@@ -1,7 +1,7 @@
 Character Name: "Byron" 
 Class: "Warrior" 
 Level: 1
-Strength: 15
+Strength: 10
 Magic: 2
 Health: 100
 Gold: 50

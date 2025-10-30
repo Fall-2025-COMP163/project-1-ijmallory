@@ -1,7 +1,1 @@
-Character Name: Byron
-Class: Warrior
-Level: 1
-Strength: 10
-Magic: 2
-Health: 100
-Gold: 50
+Character Name: "Byron" Class: "Warrior" Level: "1" Strength: "10" Magic: "2" Health: "100" Gold: "50"

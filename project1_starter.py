@@ -17,20 +17,18 @@ def create_character(name, character_class):
     # Should return: {"name": "Aria", "class": "Mage", "level": 1, "strength": 5, "magic": 15, "health": 80, "gold": 100}
     """
     # TODO: Implement this function
-    char = create_character("Byron", "Warrior")
-    level = 1
     strength, magic, health = calculate_stats(character_class, level)
 
-    character = {
-        "name": Byron,
-        "class": ,
+    char = {
+        "name": name,
+        "class": character_class,
         "level": level,
         "strength": strength,
         "magic": magic,
         "health": health,
         "gold": 100
     }
-    return
+    return char
     # Remember to use calculate_stats() function for stat calculation
     pass
 
@@ -71,7 +69,7 @@ def calculate_stats(character_class, level):
     # Return a tuple: (strength, magic, health)
     pass
 
-def save_character(character, filename):
+def save_character(character, 'my_character.txt'):
     """
     Saves character to text file in specific format
     Returns: True if successful, False if error occurred
@@ -126,7 +124,7 @@ def load_character('my_character.txt'):
     # Remember to handle file not found errors
     pass
 
-def display_character(character):
+def display_character(char):
     """
     Prints formatted character sheet
     Returns: None (prints to console)

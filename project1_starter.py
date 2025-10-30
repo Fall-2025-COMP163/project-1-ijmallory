@@ -22,8 +22,8 @@ def create_character(name, character_class):
     strength, magic, health = calculate_stats(character_class, level)
 
     character = {
-        "name": name,
-        "class": character_class,
+        "name": Byron,
+        "class": ,
         "level": level,
         "strength": strength,
         "magic": magic,
@@ -86,7 +86,7 @@ def save_character(character, filename):
     Gold: [gold]
     """
     # TODO: Implement this function
-    with open(filename, 'w') as file:
+    with open('my_character.txt', 'w') as file:
         file.write(f"Character Name: {character.get('name', '')}\n")
         file.write(f"Class: {character.get('class', '')}\n")
         file.write(f"Level: {character.get('level', '')}\n")
@@ -98,13 +98,13 @@ def save_character(character, filename):
     # Remember to handle file errors gracefully
     pass
 
-def load_character(filename):
+def load_character('my_character.txt'):
     """
     Loads character from text file
     Returns: character dictionary if successful, None if file not found
     """
     # TODO: Implement this function
-    with open(filename, 'r') as file:
+    with open('my_character.txt', 'r') as file:
         character_data = {}
         for line in file:
             key, value = line.strip().split(': ', 1)

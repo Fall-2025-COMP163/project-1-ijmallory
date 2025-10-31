@@ -35,6 +35,11 @@ to me how to correctly write the required format to the file.
 
 #Calculates the total strength, magic, and health based on the class and level
 def calculate_stats(character_class, level):
+    character_class = character_class.lower()
+    strength = 5
+    magic = 15
+    health = 80-
+    
     #Determines base stats (Level 1 values) based on class
     if character_class == "Warrior":
         strength = 10
@@ -68,6 +73,7 @@ def save_character(character, filename):
     directory = os.path.dirname(filename)
     if directory and not os.path.exists(directory):
         return False
+    
     #Use 'with open' to ensure the file is closed automatically
     with open(filename, 'w') as file:
         #Writes each attribute line in the exact required format
@@ -86,8 +92,9 @@ def load_character(filename):
     if not os.path.exists(filename):
         return None
     #Opens the file and reads the line
-    with open(filename) as file:
-        lines = file.readlines()
+    file = open(filename, 'r')
+    lines = file.readlines()
+    file.close()
         character_data = {}
         for line in lines:
             if ":" not in line:

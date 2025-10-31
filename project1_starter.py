@@ -163,6 +163,7 @@ def level_up(character):
     character['health'] += 10
     character['gold'] += 50
     # Remember to recalculate stats for the new level
+    return
     pass
 
 # Main program area (optional - for testing your functions)

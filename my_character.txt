@@ -1,7 +1,0 @@
-Character Name:
-Class:
-Level:
-Strength:
-Magic:
-Health:
-Gold:

@@ -10,7 +10,7 @@ me fix the logic in my save_character function. I also used AI to help me debug 
 to me how to correctly write the required format to the file.
 """
 
- #Creates a new character dictionary with initial stats
+#Creates a new character dictionary with initial stats
 def create_character(name, character_class): 
 	level = 1
 	#Calculate the base stats for level 1 characters of this class
@@ -30,8 +30,8 @@ def create_character(name, character_class):
         "magic": magic,
         "health": health,
         "gold": 100
-     }
-     return character
+    }
+    return character
 
 #Calculates the total strength, magic, and health based on the class and level
 def calculate_stats(character_class, level):
@@ -94,7 +94,7 @@ def load_character(filename):
     file.close()
     character_data = {}
     for line in lines:
-        if ":" not in line:
+        if ": " not in line:
             continue
         key, value = line.strip().split(": ", 1)
         key = key.lower().replace("character", "")
@@ -108,15 +108,15 @@ def load_character(filename):
 
 #Prints a formatted character sheet to the console
 def display_character(character):
-	 print("=== CHARACTER SHEET ===")
-     print(f"Name: {character.get('name', '')}")
-     print(f"Class: {character.get('class', '')}")
-     print(f"Level: {character.get('level', 0)}")
-     print(f"Strength: {character.get('strength', 0)}")
-     print(f"Magic: {character.get('magic', 0)}")
-     print(f"Health: {character.get('health', 0)}")
-     print(f"Gold: {character.get('gold', 0)}")
-     print("=" * 23)
+	print("=== CHARACTER SHEET ===")
+    print(f"Name: {character.get('name', '')}")
+    print(f"Class: {character.get('class', '')}")
+    print(f"Level: {character.get('level', 0)}")
+    print(f"Strength: {character.get('strength', 0)}")
+    print(f"Magic: {character.get('magic', 0)}")
+    print(f"Health: {character.get('health', 0)}")
+    print(f"Gold: {character.get('gold', 0)}")
+    print("=" * 23)
 
 #Increases character level and recalculates all core stats
 #Modifies the character dictionary directly

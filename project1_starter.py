@@ -60,7 +60,7 @@ def calculate_stats(character_class, level):
     else:
         print("Invalid character")
         return calculate_stats("Mage", level)
-    return strength * level, magic * level, health * level
+    return strength, magic, health 
 
 #Saves character to a text file in the required descriptive format
 #Includes basic checks for valid data/filename
@@ -99,7 +99,7 @@ def load_character(filename):
         for line in lines:
             if ":" not in line:
                 continue
-            key, value = line.strip().split(': ', 1)
+            key, value = line.strip().split(": ", 1)
             key = key.lower().replace("character", "")
             if value.isdigit():
                 value = int(value)
@@ -131,8 +131,7 @@ def level_up(character):
     character['strength'] = strength
     character['magic'] = magic
     character['health'] = health
-    character['gold'] += 50
-    print(f"{character['name']} has level up!")
+    print(f"{character['name']} has leveled up!")
 
 #A main program area to test application logic
 if __name__ == "__main__":

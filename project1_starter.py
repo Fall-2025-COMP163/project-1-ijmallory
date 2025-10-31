@@ -11,7 +11,7 @@ to me how to correctly write the required format to the file.
 """
 
  #Creates a new character dictionary with initial stats
- def create_character(name, character_class):
+def create_character(name, character_class):
     level = 1
     #Calculate the base stats for level 1 characters of this class
     strength, magic, health = calculate_stats(character_class, level)
@@ -30,37 +30,37 @@ to me how to correctly write the required format to the file.
         "magic": magic,
         "health": health,
         "gold": 100
-    }
+     }
     return character
 
 #Calculates the total strength, magic, and health based on the class and level
-def calculate_stats(character_class, level):
-    character_class = character_class.lower()
-    strength = 5
-    magic = 15
-    health = 80-
+ def calculate_stats(character_class, level):
+     character_class = character_class.lower()
+     strength = 5
+     magic = 15
+     health = 80-
     
-    #Determines base stats (Level 1 values) based on class
-    if character_class == "Warrior":
-        strength = 10
-        magic = 2
-        health = 100
-    elif character_class == "Mage":
-        strength = 5
-        magic = 15
-        health = 80
-    elif character_class == "Rogue":
-        strength = 8
-        magic = 8
-        health = 70
-    elif character_class == "Cleric":
-        strength = 7
-        magic = 12
-        health = 90
-    else:
-        print("Invalid character")
-        return calculate_stats("Mage", level)
-    return strength, magic, health 
+     #Determines base stats (Level 1 values) based on class
+     if character_class == "Warrior":
+         strength = 10
+         magic = 2
+         health = 100
+     elif character_class == "Mage":
+         strength = 5
+         magic = 15
+         health = 80
+     elif character_class == "Rogue":
+         strength = 8
+         magic = 8
+         health = 70
+     elif character_class == "Cleric":
+         strength = 7
+         magic = 12
+         health = 90
+     else:
+         print("Invalid character")
+         return calculate_stats("Mage", level)
+     return strength, magic, health 
 
 #Saves character to a text file in the required descriptive format
 #Includes basic checks for valid data/filename

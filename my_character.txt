@@ -1,0 +1,6 @@
+Character Name:
+Class:
+Strength:
+Magic
+Health
+Gold:

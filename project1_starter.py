@@ -92,22 +92,22 @@ def load_character(filename):
     file = open(filename, 'r')
     lines = file.readlines()
     file.close()
-        character_data = {}
-        for line in lines:
-            if ":" not in line:
-                continue
-            key, value = line.strip().split(": ", 1)
-            key = key.lower().replace("character", "")
-            if value.isdigit():
-                value = int(value)
-            character_data[key] = value
-        if len(character_data) == 0:
-            return None
+    character_data = {}
+    for line in lines:
+        if ":" not in line:
+            continue
+        key, value = line.strip().split(": ", 1)
+        key = key.lower().replace("character", "")
+        if value.isdigit():
+            value = int(value)
+        character_data[key] = value
+    if len(character_data) == 0:
+        return None
         
-        return character_data
+    return character_data
 
 #Prints a formatted character sheet to the console
-def display_character(character):
+ def display_character(character):
     print("=== CHARACTER SHEET ===")
     print(f"Name: {character.get('name', '')}")
     print(f"Class: {character.get('class', '')}")

@@ -19,7 +19,7 @@ def create_character(name, character_class):
     # TODO: Implement this function
     strength, magic, health = calculate_stats(character_class, level)
 
-    char = {
+    character = {
         "name": name,
         "class": character_class,
         "level": level,
@@ -28,7 +28,7 @@ def create_character(name, character_class):
         "health": health,
         "gold": 100
     }
-    return char
+    return character
     # Remember to use calculate_stats() function for stat calculation
  
 
@@ -124,7 +124,7 @@ def load_character('my_character.txt'):
     # Remember to handle file not found errors
     
 
-def display_character(char):
+def display_character(character):
     """
     Prints formatted character sheet
     Returns: None (prints to console)

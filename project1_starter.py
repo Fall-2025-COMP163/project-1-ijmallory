@@ -11,15 +11,15 @@ to me how to correctly write the required format to the file.
 """
 
  #Creates a new character dictionary with initial stats
-def create_character(name, character_class):
-    level = 1
-    #Calculate the base stats for level 1 characters of this class
+def create_character(name, character_class): 
+	level = 1
+	#Calculate the base stats for level 1 characters of this class
     strength, magic, health = calculate_stats(character_class, level)
     #list of recognized character classes
     valid_classes = ["Warrior", "Mage", "Rogue", "Cleric"]
     #Checks if the provided class name is in the list of valid classes
     if character_class not in valid_classes:
-        return None
+		return None
     
     #Assembles all attributes into the final character dictionary
     character = {
@@ -31,15 +31,15 @@ def create_character(name, character_class):
         "health": health,
         "gold": 100
      }
-    return character
+     return character
 
 #Calculates the total strength, magic, and health based on the class and level
 def calculate_stats(character_class, level):
-    character_class = character_class.lower()
+	character_class = character_class.lower()
     
     #Determines base stats (Level 1 values) based on class
     if character_class == "Warrior":
-        strength = 10
+		strength = 10
         magic = 2
         health = 100
     elif character_class == "Mage":
@@ -62,10 +62,10 @@ def calculate_stats(character_class, level):
 #Saves character to a text file in the required descriptive format
 #Includes basic checks for valid data/filename
 def save_character(character, filename):
-    import os
+	import os
     #Checks if inputs are valid dictionary and filename
     if not isinstance(character, dict) or not filename:
-        return False
+		return False
     #Checks if the directory exists
     directory = os.path.dirname(filename)
     if directory and not os.path.exists(directory):
@@ -73,7 +73,7 @@ def save_character(character, filename):
     
     #Use 'with open' to ensure the file is closed automatically
     with open(filename, 'w') as file:
-        #Writes each attribute line in the exact required format
+		#Writes each attribute line in the exact required format
         file.write(f"Character Name: {character['name']}\n")
         file.write(f"Class: {character['class']}\n")
         file.write(f"Level: {character['level']}\n")
@@ -85,7 +85,7 @@ def save_character(character, filename):
 
 import os
 def load_character(filename):
-    #Checks if the file exist
+	#Checks if the file exist
     if not os.path.exists(filename):
         return None
     #Opens the file and reads the line
@@ -99,7 +99,7 @@ def load_character(filename):
         key, value = line.strip().split(": ", 1)
         key = key.lower().replace("character", "")
         if value.isdigit():
-            value = int(value)
+			value = int(value)
         character_data[key] = value
     if len(character_data) == 0:
         return None
@@ -107,16 +107,16 @@ def load_character(filename):
     return character_data
 
 #Prints a formatted character sheet to the console
- def display_character(character):
-    print("=== CHARACTER SHEET ===")
-    print(f"Name: {character.get('name', '')}")
-    print(f"Class: {character.get('class', '')}")
-    print(f"Level: {character.get('level', 0)}")
-    print(f"Strength: {character.get('strength', 0)}")
-    print(f"Magic: {character.get('magic', 0)}")
-    print(f"Health: {character.get('health', 0)}")
-    print(f"Gold: {character.get('gold', 0)}")
-    print("=" * 23)
+def display_character(character):
+	 print("=== CHARACTER SHEET ===")
+     print(f"Name: {character.get('name', '')}")
+     print(f"Class: {character.get('class', '')}")
+     print(f"Level: {character.get('level', 0)}")
+     print(f"Strength: {character.get('strength', 0)}")
+     print(f"Magic: {character.get('magic', 0)}")
+     print(f"Health: {character.get('health', 0)}")
+     print(f"Gold: {character.get('gold', 0)}")
+     print("=" * 23)
 
 #Increases character level and recalculates all core stats
 #Modifies the character dictionary directly
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
     char = create_character(user_name, player_class)
     if char is not None:
-        display_character(char)
+		display_character(char)
         level_up(char)
         save_character(char, "my_character.txt")
         loaded = load_character("my_character.txt")

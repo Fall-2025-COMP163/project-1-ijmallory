@@ -59,6 +59,7 @@ def calculate_stats(character_class, level):
         return calculate_stats("Mage", level)
     return strength, magic, health 
 
+filename = "my_character.txt"
 #Saves character to a text file in the required descriptive format
 #Includes basic checks for valid data/filename
 def save_character(character, filename):

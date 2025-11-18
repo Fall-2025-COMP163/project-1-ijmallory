@@ -59,7 +59,6 @@ def calculate_stats(character_class, level):
         return calculate_stats("Mage", level)
     return strength, magic, health 
 
-filename = "my_character.txt"
 #Saves character to a text file in the required descriptive format
 #Includes basic checks for valid data/filename
 def save_character(character, filename):
@@ -93,7 +92,7 @@ def load_character(filename):
     file = open(filename, 'r')
     lines = file.readlines()
     file.close()
-    character_data = {}
+    character = {}
     for line in lines:
         if ": " not in line:
             continue
@@ -101,11 +100,11 @@ def load_character(filename):
         key = key.lower().replace("character", "")
         if value.isdigit():
 			value = int(value)
-        character_data[key] = value
+        character[key] = value
     if len(character_data) == 0:
         return None
         
-    return character_data
+    return character
 
 #Prints a formatted character sheet to the console
 def display_character(character):

@@ -15,6 +15,7 @@ def create_character(name, character_class):
 	level = 1
 	#Calculate the base stats for level 1 characters of this class
     strength, magic, health = calculate_stats(character_class, level)
+
     #list of recognized character classes
     valid_classes = ["Warrior", "Mage", "Rogue", "Cleric"]
     #Checks if the provided class name is in the list of valid classes
